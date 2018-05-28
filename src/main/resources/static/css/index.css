@@ -1,0 +1,317 @@
+body
+{
+	/*This pattern is downloaded from www.subtlepatterns.com If you need more, that's where to get'em.*/
+	/*background-image: url("../img/low_contrast_linen.png");*/
+	background-color: #2a2e32;
+	font-family: 'Crimson Text', serif;
+	font-size: 17px;
+	color: white;
+	margin: 0;
+}
+
+h1.logo
+{
+	
+	font-size: 44px;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	
+}
+
+h1.logo a
+{
+	color: #ddd;
+	text-decoration: none;
+}
+
+
+#topnav
+{
+	
+	background-color: #0084b4;
+	text-align: center;
+	
+}
+
+.menu
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 10px;
+	font-size: 18px;
+	min-height: 30px;
+	line-height: 200%;
+
+}
+
+.menu > li
+{
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-right: 1px dashed #0041a1;
+	
+}
+
+.menu > li:first-child
+{
+	border-left: 1px dashed #0041a1;
+}
+
+.menu button
+{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color:white;
+  padding:0;
+  text-decoration:none;
+  font-family:inherit;
+  font-size:inherit;
+}
+
+.menu button:hover
+{
+	color: #cccccc;
+
+}
+
+}
+.categories
+{
+	margin-left: auto;
+	margin-right:auto;
+	width: 950px;
+	text-align: center;
+	
+}
+
+
+#slider
+{
+	width: 255px;
+	height: 238px;
+	padding-top: 10px;
+}
+
+.num
+{
+	float: left;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 30px;
+	border-right: 1px solid grey;
+	width: 15%;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+.num:first-child
+{
+	border-left: 1px solid grey;
+}
+
+#image
+{
+	width: 255px;
+	height: 188px;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+
+h1
+{
+
+		font-size: 44px;
+		font-weight: 400;
+		color: #39a5f1;
+		margin-bottom: 20px;
+}
+
+.author
+{
+	display: inline-block;
+	margin-top: 10px;
+}
+
+.author a
+{
+	opacity: 0.85;
+}
+
+.author a:hover
+{
+	opacity: 1.0;
+}
+
+figure
+{
+	margin: 10px;
+	padding: 0;
+	
+}
+
+figcaption
+{
+	margin-top: 10px;
+	padding: 0;
+}
+
+.entries
+{
+	margin-left: auto;
+	margin-right:auto;
+	width: 950px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#newest
+{
+	background-color: #191d21;
+}
+
+footer
+{
+	background-color: #191d21;
+}
+	
+.social
+{
+	margin-left: auto;
+	margin-right:auto;
+	width: 480px;
+	padding: 10px;
+}
+
+.social a
+{
+	text-decoration: none;
+	color:white;
+}
+
+.social a:hover
+{
+	text-decoration: none;
+	color:grey;
+}
+
+.sociallink
+{
+	width: 80px;
+	font-size: 60px;
+	float: left;
+	padding: 20px;
+
+}
+
+.entry
+{
+	background-color: #222930;
+	padding: 10px;
+	text-align: justify;
+	margin-top: 40px;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.entryimg
+{
+	display: inline-block;
+}
+
+.entryimg img
+{
+	height: 90px;
+	width: 90px;
+}
+
+.entrytxt
+{
+	display: inline-block;
+	width: 700px;
+	margin: 10px;
+	
+}
+
+h2
+{
+	font-size: 20px;
+	font-weight: 400;
+	color: #39a5f1;
+}
+
+h2 a
+{
+	color: #39a5f1;
+	text-decoration: none;
+}
+
+
+.contact
+{
+	margin-left: auto;
+	margin-right:auto;
+	width: 950px;
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+.contactButton
+{
+	background-color: #1c74b2;
+	padding: 15px;
+	color: #efefef;
+	font-size: 20px;
+	text-decoration: none;
+	border-radius: 5px;
+	min-width: 300px;
+}
+
+.contactButton:hover
+{
+	background-color: #196499;
+	
+}
+
+.contact p
+{
+	
+	margin-bottom: 50px;
+}
+
+.info
+{
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	text-align: center;
+	
+}
+
+
+#upBtn {
+    display: none;
+    position: fixed; 
+    bottom: 20px;
+    right: 30px; 
+    border: none; 
+    outline: none; 
+    background-color: #222930;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#myBtn:hover {
+    background-color: #111820;
+}
+
