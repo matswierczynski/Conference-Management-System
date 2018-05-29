@@ -9,5 +9,6 @@ import com.wizzard.uploadpapers.entity.Status;
 public interface StatusRepository extends JpaRepository<Status, Long> {
 	
 	Status findByStatus(String status);
+	Status findById(int id);
 
 }

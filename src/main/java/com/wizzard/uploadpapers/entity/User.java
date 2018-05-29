@@ -2,6 +2,8 @@ package com.wizzard.uploadpapers.entity;
 
 import javax.persistence.JoinColumn;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,6 +17,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -24,11 +27,10 @@ import org.springframework.data.annotation.Transient;
 
 @Entity
 @Table(name="user")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_id")
 	private int id;
 	
@@ -54,6 +56,17 @@ public class User {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="role_id", nullable=false)
 	private Role role;
+	
+	@OneToMany(mappedBy="user",cascade = CascadeType.ALL)
+	private List<Paper> papers = new ArrayList<>();
+
+	public List<Paper> getPapers() {
+		return papers;
+	}
+
+	public void setPapers(List<Paper> papers) {
+		this.papers = papers;
+	}
 
 	public int getId() {
 		return id;

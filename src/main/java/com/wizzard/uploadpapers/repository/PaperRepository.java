@@ -7,6 +7,7 @@ import com.wizzard.uploadpapers.entity.Paper;
 
 @Repository
 public interface PaperRepository extends JpaRepository<Paper, Long>{
-	
+	Paper findById(int id);
+	Paper findByTitle(String title);
 
 }

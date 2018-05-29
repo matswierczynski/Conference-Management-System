@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.wizzard.uploadpapers.entity.Scientist;
 import com.wizzard.uploadpapers.entity.User;
-import com.wizzard.uploadpapers.service.ScientistService;
 import com.wizzard.uploadpapers.service.UserService;
 
 @Controller
@@ -24,9 +22,6 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private ScientistService scientistService;
-
 	@RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
 	public ModelAndView login(){
 		ModelAndView modelAndView = new ModelAndView();
@@ -38,24 +33,22 @@ public class LoginController {
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
 	public ModelAndView registration(){
 		ModelAndView modelAndView = new ModelAndView();
-		Scientist scientist = new Scientist();
-		modelAndView.addObject("scientist", scientist);
+		User user = new User();
+		modelAndView.addObject("user", user);
 		modelAndView.setViewName("registration");
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public ModelAndView createNewUser(@Valid Scientist scientist, BindingResult bindingResult, 
+	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult, 
 			@RequestParam(value = "scientistReg", required = false) String checkboxValue) {
 		ModelAndView modelAndView = new ModelAndView();
 		User userExists;
-		Scientist scientistExists;
 		
-		scientistExists = scientistService.findScientistByEmail(scientist.getEmail());
-		userExists = userService.findUserByEmail(scientist.getEmail());
-		if (userExists != null || scientistExists != null) {
+		userExists = userService.findUserByEmail(user.getEmail());
+		if (userExists != null) {
 			bindingResult
-					.rejectValue("email", "error.scientist",
+					.rejectValue("email", "error.user",
 							"There is already a user registered with the email provided");
 		}
 		if (bindingResult.hasErrors()) {
@@ -63,12 +56,12 @@ public class LoginController {
 		} 
 		else {
 			if (checkboxValue != null)
-				scientistService.saveScientist(scientist);
+				userService.saveUser(user, "SCIENTIST");
 			else
-				userService.saveUser(scientist);
+				userService.saveUser(user, "PARTICIPANT");
 			
 			modelAndView.addObject("successMessage", "User has been registered successfully");
-			modelAndView.addObject("scientist", new Scientist());
+			modelAndView.addObject("scientist", new User());
 			modelAndView.setViewName("registration");
 			}
 		

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<h1>Upload Paper</h1>
+	<h1>Paper Data</h1>
     <p>Please fill in this form to upload a paper</p>
     <form  th:action="@{/user/files}" method="get">
 						<button type="Submit">List files</button>
@@ -19,64 +19,62 @@
     <hr>
 	
 	<div class="container">
-	<form method="post" action="#" th:action="@{/user/upload}" enctype="multipart/form-data"
-	  th:object="${fileUploadModel}">
 	  	<div class="row">
 	  		<div class="col-25">
-	  			<label for="title">Paper Title</label>
+	  			<label>Title</label>
 	  		</div>
-	  		<div class="col-75">
-	  			<input type="text" id="title"
-	  			th:field="*{title}" 
-	  			placeholder="Enter title"/>
-	  		</div>
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25-red">
-	  			<label
-	  			th:if="${#fields.hasErrors('title')}" 
-	  			th:errors="*{title}"></label>
+	  		<div class="col-25">
+	  		<label th:text="${title}"></label>
 	  		</div>
 	  	</div>
 	  	
 	  	<div class="row">
 	  		<div class="col-25">
-	  			<label for="paper">Paper File</label>
+	  			<label>Paper</label>
 	  		</div>
-	  		<div class="col-75">
-	  			<input type="file"
-	  			id="paper" 
-	  			name="paperFile" />
-	  		</div>
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25-red">
-	  			<label th:if="${#fields.hasErrors('paperFile')}" 
-	  			th:errors="*{paperFile}"></label>
-	  		</div>
+	  		<div class="col-25">
+	  			<a th:href="@{'/user/files/file/paper/'+${title}}">Download paper</a>
 	  	</div>
 	  	
+	  	</div>
 	  	<div class="row">
 	  		<div class="col-25">
-	  			<label for="abstract">Abstract File</label>
+	  			<label>Abstract</label>
 	  		</div>
-	  		<div class="col-75">
-				<input type="file"
-				id="abstract" 
-				name="abstractFile" /> 
-	  		</div>
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25-red">
-	  			<label th:if="${#fields.hasErrors('abstractFile')}" 
-	  			th:errors="*{abstractFile}"></label>
-	  		</div>
+	  		<div class="col-25">
+	  			<a th:href="@{'/user/files/file/abstract/'+${title}}">Download abstract</a>
 	  	</div>
 	  	
-	  	<div class="row">
-	  		<input type="submit" value="Submit">
 	  	</div>
-	</form>
-	</div>
+	  	<div class="row">
+	  		<div class="col-25">
+	  			<label>Status</label>
+	  		</div>
+	  		<div class="col-25">
+	  			<label th:text="${status}"></label>
+	  	</div>
+	  	
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-25">
+	  			<label>Number of reviewers</label>
+	  		</div>
+	  		<div class="col-25">
+	  			<label th:text="${status}"></label>
+	  	</div>
+	  	
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-25">
+	  			<label>Average rating</label>
+	  		</div>
+	  		<div class="col-25">
+	  			<label th:text="${status}"></label>
+	  		</div>
+	  		
+	  		</div>
+	  	
+	  	</div>
+	  	
 </body>
 </html>

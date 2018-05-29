@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,6 +20,10 @@ public class Paper {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "paper_id")
 	private int id;
+	
+	@ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
 	
 	@Column(name = "paper_title")
 	private String title;
@@ -74,6 +79,16 @@ public class Paper {
 	public void setAbstracFile(byte[] abstracFile) {
 		this.abstracFile = abstracFile;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
 	
 
 	
