@@ -10,15 +10,14 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body>
-	<h1>Upload Paper</h1>
-    <p>Please fill in this form to upload a paper</p>
-    <form  th:action="@{/user/files}" method="get">
-						<button type="Submit">List files</button>
-	</form> 
-    <hr>
-	
+<body>	
 	<div class="container">
+	<form th:action="@{/user/files}" method="get">
+		<button class="loginbtn" type="Submit">List files</button>
+	</form>
+	<h1>Upload Paper</h1>
+    <p>Please fill in this form to upload a paper</p>	
+    <hr>
 	<form method="post" action="#" th:action="@{/user/upload}" enctype="multipart/form-data"
 	  th:object="${fileUploadModel}">
 	  	<div class="row">

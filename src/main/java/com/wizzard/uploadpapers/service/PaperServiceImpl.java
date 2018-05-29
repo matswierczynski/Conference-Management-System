@@ -60,7 +60,6 @@ public class PaperServiceImpl implements PaperService{
 			newPaper.setPaperFile(
 					getByteArrayFromFile(paper));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -68,7 +67,6 @@ public class PaperServiceImpl implements PaperService{
 			newPaper.setAbstracFile(
 					getByteArrayFromFile(abstr));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

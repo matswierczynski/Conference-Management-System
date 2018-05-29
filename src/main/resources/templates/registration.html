@@ -6,19 +6,16 @@
 	<title>Registration Form</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
-	
+	<div class="container">
 	<form th:action="@{/}" method="get">
 		<button type="Submit" class="loginbtn">Go To Login Page</button>
 	</form>
-
-<form autocomplete = "off" action="#" th:action="@{/registration}"
+	<form autocomplete = "off" action="#" th:action="@{/registration}"
 	  th:object="${user}"  method="post" role="form" style="border:1px solid #ccc">
-  <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
@@ -44,9 +41,8 @@
     <div class="clearfix">
       <button type="submit" class="signupbtn">Sign Up</button>
     </div>
-  </div>
 </form>
-
+ </div>
 <span th:utext="${successMessage}"></span>
 
 </body>

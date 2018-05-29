@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.wizzard.uploadpapers.entity.User;
 import com.wizzard.uploadpapers.service.UserService;
 
+//handles all request for login, registration, news, schedule
 @Controller
 @ComponentScan(basePackages = {"com.wizzard.uploadpapers.service"})
 public class LoginController {
@@ -65,6 +66,20 @@ public class LoginController {
 			modelAndView.setViewName("registration");
 			}
 		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/news", method=RequestMethod.GET)
+    public ModelAndView showNews() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("news");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/schedule", method=RequestMethod.GET)
+    public ModelAndView showSchedule() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("schedule");
 		return modelAndView;
 	}
 	

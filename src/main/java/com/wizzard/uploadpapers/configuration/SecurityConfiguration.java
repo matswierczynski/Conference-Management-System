@@ -27,9 +27,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private DataSource dataSource;
 	
+	//for querying all users from db, query in application.properties
 	@Value("${spring.queries.users-query}")
 	private java.lang.String usersQuery;
 	
+	//for querying corresponding users' roles, query in application.properties 
 	@Value("${spring.queries.roles-query}")
 	private java.lang.String rolesQuery;
 	
@@ -49,6 +51,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.
 				authorizeRequests()
 					.antMatchers("/").permitAll()
+					.antMatchers("/news").permitAll()
+					.antMatchers("/schedule").permitAll()
 					.antMatchers("/login").permitAll()
 					.antMatchers("/registration").permitAll()
 					.antMatchers("/user/home").hasAnyAuthority("PARTICIPANT","SCIENTIST")

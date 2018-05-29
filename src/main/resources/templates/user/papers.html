@@ -11,24 +11,26 @@
 </head>
 
 <body>
-	<h2>Manage Papers</h2>
-    <p>Below you can find a list of submitted papers</p>
-    <form  th:action="@{/user/home}" method="get">
-						<button type="Submit">Control Panel</button>
-	</form> 
-    <hr>
 	<div class="container">
+		<form  th:action="@{/user/home}" method="get">
+			<button type="Submit" class="loginbtn">Control Panel</button>
+		</form> 
+		<h2>Manage Papers</h2>
+	    <p>Below you can find a list of submitted papers</p>
+	    <hr>
 		<p>Paper Title</p>
 		<ul>
 			<li th:each="file : ${files}">
 					<a th:href="@{'/user/files/'+${file.title}}" th:text="${file.title}" ></a>
 			</li>
 		</ul>
+		
+		<form  th:action="@{/user/upload}" method="get">
+			<button type="Submit" class="loginbtn">Upload New File</button>
+		</form>
 	</div>
 	
-	<form  th:action="@{/user/upload}" method="get">
-						<button type="Submit">Upload New File</button>
-	</form> 
+	 
 </body>
 </html>
 	  	
