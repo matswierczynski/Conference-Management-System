@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Manage Paper</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/upload.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<form th:action="@{/home-organizer}" method="get">
+			<button type="Submit" class="loginbtn">Home</button>
+		</form>
+		<h2>Choose paper</h2>
+		<p>List of all submitted papers</p>
+		<hr>
+
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Status</th>
+				<th>Number of assigned reviewers</th>
+				<th>Assign reviewer</th>
+			</tr>
+			<tr th:each="file : ${files}">
+				<td th:text="${file.paperTitle}">Title</td>
+				<td th:text="${file.status}">Status</td>
+				<td th:text="${file.reviewersNumber}">Number of assigned
+					reviewers</td>
+				<td><span><a
+						th:href="@{'/assign/files/'+${file.paperTitle}}">Assign</a></span></td>
+			</tr>
+		</table>
+
+	</div>
+
+</body>
+</html>

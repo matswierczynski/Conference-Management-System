@@ -3,32 +3,34 @@
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Login Page</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Login Page</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/registration.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 
 <body>
 
 	<div class="container">
-	<form th:action="@{/registration}" method="get">
-		<button class="loginbtn" type="Submit">Go To Registration Page</button>
-	</form>	
-	<form th:action="@{/login}" method="POST" style="border:1px solid #ccc">
-	
+		<form th:action="@{/home}" method="get">
+			<button class="loginbtn" type="Submit">Go to home page</button>
+		</form>
+		<form th:action="@{/login}" method="POST"
+			style="border: 1px solid #ccc">
+
 			<h3 class="form-signin-heading" th:text="Welcome"></h3>
-			<br/>
-			 
-			<input type="text" id="email" name="email"  th:placeholder="Email"/> <br/> 
-			<input type="password"  th:placeholder="Password"
-				id="password" name="password"/> <br /> 
-				
+			<br /> <input type="text" id="email" name="email"
+				th:placeholder="Email" /> <br /> <input type="password"
+				th:placeholder="Password" id="password" name="password" /> <br />
+
 			<div align="center" th:if="${param.error}">
-				<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+				<p style="font-size: 20; color: #FF1C19;">Email or Password
+					invalid, please verify</p>
 			</div>
 			<button type="submit" class="signupbtn">Login</button>
-	</form>
+		</form>
 	</div>
 </body>
 </html>

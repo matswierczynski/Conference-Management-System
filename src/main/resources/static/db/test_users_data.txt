@@ -1,0 +1,15 @@
+Role: login(email), password
+
+Organizer: organizer@email.com, organizer
+Participant: participant@email.com, participant
+Reviewer: reviewer1@email.com, reviewer1
+Reviewer: reviewer2@email.com, reviewer2
+Reviewer: reviewer3@email.com, reviewer3
+Reviewer: reviewer4@email.com, reviewer4
+Reviewer: reviewer5@email.com, reviewer5
+Scientist: scientist1@email.com, scientist1
+Scientist: scientist2@email.com, scientist2
+Scientist: scientist3@email.com, scientist3
+Scientist: scientist4@email.com, scientist4
+Scientist: scientist5@email.com, scientist5
+Scientist: scientist6@email.com, scientist6

@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-	
+
 <head>
-	<title>Manage Paper</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/upload.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Manage Paper</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/upload.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 	<div class="container">
-		<form  th:action="@{/user/home}" method="get">
-			<button type="Submit" class="loginbtn">Control Panel</button>
-		</form> 
+		<form th:action="@{/home-scientist}" method="get">
+			<button type="Submit" class="loginbtn">Home</button>
+		</form>
 		<h2>Manage Papers</h2>
-	    <p>Below you can find a list of submitted papers</p>
-	    <hr>
+		<p>Below you can find a list of submitted papers</p>
+		<hr>
 		<p>Paper Title</p>
 		<ul>
-			<li th:each="file : ${files}">
-					<a th:href="@{'/user/files/'+${file.title}}" th:text="${file.title}" ></a>
+			<li th:each="file : ${files}"><a
+				th:href="@{'/user/files/'+${file.title}}" th:text="${file.title}"></a>
 			</li>
 		</ul>
-		
-		<form  th:action="@{/user/upload}" method="get">
+
+		<form th:action="@{/user/upload}" method="get">
 			<button type="Submit" class="loginbtn">Upload New File</button>
 		</form>
 	</div>
-	
-	 
+
+
 </body>
 </html>
-	  	

@@ -1,80 +1,109 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-	
+
 <head>
-	<title>Upload Form</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/upload.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Upload Form</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/upload.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 	<div class="container">
 		<div class="row">
-			<form  th:action="@{/user/files}" method="get">
+			<form th:action="@{/user/files}" method="get">
 				<button type="Submit" class="loginbtn">List files</button>
-			</form> 
+			</form>
 			<h1>Paper Details</h1>
-		    <hr>
+			<hr>
 		</div>
-	  	<div class="row">
-	  		<div class="col-25">
-	  			<label>Title</label>
-	  		</div>
-	  		<div class="col-25">
-	  		<label th:text="${title}"></label>
-	  		</div>
-	  	</div>
-	  	
-	  	<div class="row">
-	  		<div class="col-25">
-	  			<label>Paper</label>
-	  		</div>
-	  		<div class="col-25">
-	  			<a th:href="@{'/user/files/file/paper/'+${title}}">Download paper</a>
-	  	</div>
-	  	
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25">
-	  			<label>Abstract</label>
-	  		</div>
-	  		<div class="col-25">
-	  			<a th:href="@{'/user/files/file/abstract/'+${title}}">Download abstract</a>
-	  	</div>
-	  	
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25">
-	  			<label>Status</label>
-	  		</div>
-	  		<div class="col-25">
-	  			<label th:text="${status}"></label>
-	  	</div>
-	  	
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25">
-	  			<label>Number of reviewers</label>
-	  		</div>
-	  		<div class="col-25">
-	  			<label th:text="${status}"></label>
-	  	</div>
-	  	
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25">
-	  			<label>Average rating</label>
-	  		</div>
-	  		<div class="col-25">
-	  			<label th:text="${status}"></label>
-	  		</div>
-	  		
-	  		</div>
-	  	
-	  	</div>
-	  	
+		<div class="row">
+			<div class="col-25">
+				<label>Title</label>
+			</div>
+			<div class="col-25">
+				<label th:text="${title}"></label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-25">
+				<label>Paper</label>
+			</div>
+			<div class="col-25">
+				<a th:href="@{'/user/files/file/paper/'+${title}}">Download
+					paper</a>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label>Abstract</label>
+			</div>
+			<div class="col-25">
+				<a th:href="@{'/user/files/file/abstract/'+${title}}">Download
+					abstract</a>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label>Status</label>
+			</div>
+			<div class="col-25">
+				<label th:text="${status}"></label>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label>Number of reviewers</label>
+			</div>
+			<div class="col-25">
+				<label th:text="${reviewersNumber}"></label>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label>Average rating</label>
+			</div>
+			<div class="col-25">
+				<label th:text="${score}"></label>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label>Feedbacks</label>
+			</div>
+			<div class="col-25">
+				<table>
+					<tr>
+						<th>First name</th>
+						<th>Last name</th>
+						<th>Email</th>
+						<th>Feedback</th>
+					</tr>
+					<tr th:each="reviewer : ${reviewers}">
+						<td th:text="${reviewer.firstName}">First name</td>
+						<td th:text="${reviewer.lastName}">Last name</td>
+						<td th:text="${reviewer.email}">Email</td>
+						<td><span><a
+								th:href="@{'/user/files/file/feedback/' + ${title} + '/' + ${reviewer.email}}">Download
+									feedback</a></span></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+	</div>
+
 </body>
 </html>

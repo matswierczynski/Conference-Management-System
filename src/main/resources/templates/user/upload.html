@@ -1,81 +1,77 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-	
+
 <head>
-	<title>Upload Form</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/upload.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Upload Form</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/upload.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body>	
+<body>
 	<div class="container">
-	<form th:action="@{/user/files}" method="get">
-		<button class="loginbtn" type="Submit">List files</button>
-	</form>
-	<h1>Upload Paper</h1>
-    <p>Please fill in this form to upload a paper</p>	
-    <hr>
-	<form method="post" action="#" th:action="@{/user/upload}" enctype="multipart/form-data"
-	  th:object="${fileUploadModel}">
-	  	<div class="row">
-	  		<div class="col-25">
-	  			<label for="title">Paper Title</label>
-	  		</div>
-	  		<div class="col-75">
-	  			<input type="text" id="title"
-	  			th:field="*{title}" 
-	  			placeholder="Enter title"/>
-	  		</div>
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25-red">
-	  			<label
-	  			th:if="${#fields.hasErrors('title')}" 
-	  			th:errors="*{title}"></label>
-	  		</div>
-	  	</div>
-	  	
-	  	<div class="row">
-	  		<div class="col-25">
-	  			<label for="paper">Paper File</label>
-	  		</div>
-	  		<div class="col-75">
-	  			<input type="file"
-	  			id="paper" 
-	  			name="paperFile" />
-	  		</div>
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25-red">
-	  			<label th:if="${#fields.hasErrors('paperFile')}" 
-	  			th:errors="*{paperFile}"></label>
-	  		</div>
-	  	</div>
-	  	
-	  	<div class="row">
-	  		<div class="col-25">
-	  			<label for="abstract">Abstract File</label>
-	  		</div>
-	  		<div class="col-75">
-				<input type="file"
-				id="abstract" 
-				name="abstractFile" /> 
-	  		</div>
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-25-red">
-	  			<label th:if="${#fields.hasErrors('abstractFile')}" 
-	  			th:errors="*{abstractFile}"></label>
-	  		</div>
-	  	</div>
-	  	
-	  	<div class="row">
-	  		<input type="submit" value="Submit">
-	  	</div>
-	</form>
+		<form th:action="@{/user/files}" method="get">
+			<button class="loginbtn" type="Submit">List files</button>
+		</form>
+		<h1>Upload Paper</h1>
+		<p>Please fill in this form to upload a paper</p>
+		<hr>
+		<form method="post" action="#" th:action="@{/user/upload}"
+			enctype="multipart/form-data" th:object="${fileUploadModel}">
+			<div class="row">
+				<div class="col-25">
+					<label for="title">Paper Title</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="title" th:field="*{title}"
+						placeholder="Enter title" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25-red">
+					<label th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-25">
+					<label for="paper">Paper File</label>
+				</div>
+				<div class="col-75">
+					<input type="file" id="paper" name="paperFile" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25-red">
+					<label th:if="${#fields.hasErrors('paperFile')}"
+						th:errors="*{paperFile}"></label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-25">
+					<label for="abstract">Abstract File</label>
+				</div>
+				<div class="col-75">
+					<input type="file" id="abstract" name="abstractFile" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25-red">
+					<label th:if="${#fields.hasErrors('abstractFile')}"
+						th:errors="*{abstractFile}"></label>
+				</div>
+			</div>
+
+			<div class="row">
+				<input type="submit" value="Submit">
+			</div>
+		</form>
 	</div>
 </body>
 </html>

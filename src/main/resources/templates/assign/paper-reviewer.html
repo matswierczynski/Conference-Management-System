@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Upload Form</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/upload.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<form th:action="@{/assign/files}" method="get">
+				<button type="Submit" class="loginbtn">List papers</button>
+			</form>
+
+			<h1 th:text="${title}"></h1>
+			<p>
+				Number of currently assigned reviewers: <span
+					th:text="${reviewersNumber}"></span>
+			</p>
+			<p>Available reviewers:</p>
+
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>LastName</th>
+					<th>E-mail</th>
+					<th>Number of assigned papers</th>
+					<th>Conflict factor</th>
+					<th>Assign reviewer</th>
+				</tr>
+				<tr th:each="reviewer : ${reviewers}">
+					<td th:text="${reviewer.firstName}">Name</td>
+					<td th:text="${reviewer.lastName}">LastName</td>
+					<td th:text="${reviewer.email}">E-mail</td>
+					<td th:text="${reviewer.papersNumber}">Number of assigned
+						papers</td>
+					<td th:text="${reviewer.conflictFactor}">Conflict factor</td>
+					<td><span><a
+							th:href="@{'/assign/assign-reviewer/' + ${title} + '/' + ${reviewer.email}}">Assign</a></span></td>
+				</tr>
+			</table>
+
+		</div>
+</body>
+</html>
