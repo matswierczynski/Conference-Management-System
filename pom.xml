@@ -68,6 +68,16 @@
      		<groupId>net.sourceforge.nekohtml</groupId>
      		<artifactId>nekohtml</artifactId>
      		</dependency>
+     	<dependency>
+    	<groupId>junit</groupId>
+    		<artifactId>junit</artifactId>
+    		<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-java</artifactId>
+		    <version>3.12.0</version>
+		</dependency>
 
 	</dependencies>
 
